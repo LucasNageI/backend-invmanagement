@@ -1,3 +1,5 @@
+import ENVIRONMENT from "../config/environment.js"
+
 const customCorsMiddleware = (req, res, next) => {
     const origin = req.headers.origin
     const allowedOrigins = [
