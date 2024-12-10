@@ -10,11 +10,14 @@ import customCorsMiddleware from "./middlewares/cors.middleware.js"
 import cors from "cors"
 
 const corsOptions = {
-  origin: "https://frontend-invmanagement-itwo82fwd-lucas-nagels-projects.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-}
+    origin: [
+      "https://frontend-invmanagement-itwo82fwd-lucas-nagels-projects.vercel.app",
+      "https://frontend-invmanagement.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  }
 
 dotenv.config()
 
