@@ -15,3 +15,5 @@ const customCorsMiddleware = (req, res, next) => {
     }
     next()
   }
+
+  export default customCorsMiddleware
