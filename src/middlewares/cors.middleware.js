@@ -1,16 +1,28 @@
-import ENVIRONMENT from "../config/environment.js"
-
 const customCorsMiddleware = (req, res, next) => {
-  const origin = req.headers.origin
-  const allowedOrigins = [ENVIRONMENT.FRONTEND_URL]
-
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin)
+    const origin = req.headers.origin
+    const allowedOrigins = [
+      ENVIRONMENT.FRONTEND_URL,
+      "http://localhost:5173",
+      "https://frontend-invmanagement-itwo82fwd-lucas-nagels-projects.vercel.app",
+    ]
+  
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin)
+      res.setHeader("Access-Control-Allow-Credentials", "true")
+    }
+  
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+  
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization, X-Requested-With, Accept"
+    )
+  
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(204)
+    }
+  
+    next()
   }
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type")
-  res.setHeader("Access-Control-Allow-Credentials", "true")
-  next()
-}
-
-export default customCorsMiddleware
+  
+  export default customCorsMiddleware

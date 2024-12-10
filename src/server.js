@@ -12,8 +12,6 @@ import customCorsMiddleware from "./middlewares/cors.middleware.js"
 
 dotenv.config()
 
-const PORT = ENVIRONMENT.PORT || 5000
-
 const app = express()
 
 connectDB()
@@ -37,5 +35,5 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Server running on port: ${PORT}`)
+  console.log(`Server running successfully`)
 })
