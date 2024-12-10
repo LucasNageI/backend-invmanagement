@@ -8,6 +8,17 @@ import inventoryRouter from "./routes/inventory.route.js"
 import employeesRouter from "./routes/employees.route.js"
 import connectDB from "./config/db.config.js"
 import customCorsMiddleware from "./middlewares/cors.middleware.js"
+import cors from "cors"
+
+const corsOptions = {
+  origin: "https://frontend-invmanagement-itwo82fwd-lucas-nagels-projects.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
+
 
 dotenv.config()
 
